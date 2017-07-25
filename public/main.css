@@ -172,8 +172,7 @@ a {
     left: 0;
     position: fixed;
     top: 0;
-    transform: translateY(-25%);
-    transform: translateX(-25%);
+    transform: translateY(-100%);
     transition: 0.3s all ease-in-out;
     z-index: 2000;
 }
@@ -213,13 +212,13 @@ a {
 
 .landing-link:hover:before {
     background: #fff;
-    width: 100%;
+    width: 25%;
     transition: width 0.5s ease-in-out;
 }
 
 .landing-link:hover:after {
     background: transparent;
-    width: 100%;
+    width: 25%;
     transition: 0s;
 }
 

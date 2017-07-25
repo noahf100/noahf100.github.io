@@ -168,26 +168,13 @@ a {
 }
 
 #landing {
-    /*background: black;
+    background: black;
     left: 0;
     position: fixed;
     top: 0;
     transform: translateY(-100%);
     transition: 0.3s all ease-in-out;
-    z-index: 2000;*/
-    position: absolute;
-    width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-  
-    background: #ededed;
-    list-style-type: none;
-    z-indexwebkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-  
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
+    z-index: 2000;
 }
 
 #landing.active {
@@ -317,13 +304,27 @@ a {
 }
 
 #menu span {
+    /*
     display: block;
     margin-bottom: 4px;
     width: 20px;
     height: 2px;
     background: black;
     -webkit-transition: all 0.6s ease-in-out;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;*/
+    position: absolute;
+    width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
 }
 
 #menu.active span:nth-child(1) {

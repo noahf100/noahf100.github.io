@@ -325,6 +325,8 @@ a {
     vertical-align: middle;
     width: 100%;
     text-align: center;
+    top: 60%;
+    transform: translateY(-50%);
 }
 
 #school {
@@ -334,6 +336,8 @@ a {
     vertical-align: middle;
     width: 100%;
     text-align: center;
+    top: 55%;
+    transform: translateY(-50%);
 }
 
 .arrow-nav {
@@ -460,7 +464,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
 
     top: 60%;
     left: 50%;
-    transform: translateX(-45%);
+    transform: translateX(-250%);
 }
 
 #contactIcons a:hover {

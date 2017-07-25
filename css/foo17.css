@@ -460,7 +460,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
 
     top: 60%;
     left: 50%;
-    transform: translateX(-45%);
+    transform: translateX(-75%);
 }
 
 #contactIcons a:hover {

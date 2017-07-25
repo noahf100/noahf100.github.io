@@ -357,50 +357,6 @@ a {
     position: absolute;
 }
 
-#go-up {
-    height: 225px;
-}
-
-#go-up a {
-    background: url('../assets/up-arrow.png');
-    top: 0;
-    left: 0;
-    width: 18px;
-    max-width: 18px;
-    height: 76px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#go-up span {
-    transform: rotate(270deg);
-    transform-origin: 35px 40px;
-    bottom: 80px;
-    left: 0;
-}
-
-#go-down {
-    height: 175px;
-}
-
-#go-down a {
-    background: url('../assets/down-arrow.png');
-    bottom: 0;
-    right: 0;
-    width: 18px;
-    max-width: 18px;
-    height: 76px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-
-#go-down span {
-    transform: rotate(90deg);
-    transform-origin: -7.5px 20px;
-}
-
 .center {
     position: relative;
     margin: 0 auto;

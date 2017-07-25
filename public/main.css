@@ -531,6 +531,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
         margin-right: 3vh;
         height: 3vh;
         width: 3vh;
+        vertical-align: middle
     }
 }
 

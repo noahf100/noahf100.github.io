@@ -30,20 +30,3 @@ $(document).ready(function() {
         }, 1000);
     });
 });
-
-/*jQuery(window).scroll(function() {
-    var scrollPosition = jQuery(this).scrollTop();
-    var full_page_height = $("#facebook").height();
-
-    if (scrollPosition > 0.9 * $("#facebook").offset().top &&
-    	scrollPosition < 0.9 * $("#facebook").offset().top + full_page_height ||
-    	scrollPosition > 0.95 * $("#brown").offset().top &&
-    	scrollPosition < 0.95 * $("#brown").offset().top + full_page_height ||
-    	scrollPosition > 0.975 * $("#contact").offset().top)  {
-        inSection = true;
-    	$("#main-icon, #menu, #menu-status").addClass('invert');
-    } else {
-        inSection = false;
-    	$("#main-icon, #menu, #menu-status").removeClass('invert');
-    }
-});*/

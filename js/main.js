@@ -10,26 +10,12 @@ function toggleMenu() {
     indicator = (indicator + 1) % 2;
     if (indicator == 1) {
         $(document.body).css({"overflow-y":"hidden"});
-        $("#menu-status").html("close");
     } else {
-        $("#menu-status").html("explore");
         $(document.body).css({"overflow-y":"auto"});
     }
 }
 
 $(document).ready(function() {
-    $("#down-arrow").click(function() {
-	    $("html, body").animate({
-	        scrollTop: ($("#facebook").offset().top)
-	    }, 750);
-	});
-
-	$("#up-arrow").click(function() {
-	    $("html, body").animate({
-	        scrollTop: 0
-	    }, 1000);
-	});
-
     $("#main-icon").click(function() {
         $("html, body").animate({
             scrollTop: 0
@@ -45,7 +31,7 @@ $(document).ready(function() {
     });
 });
 
-jQuery(window).scroll(function() {
+/*jQuery(window).scroll(function() {
     var scrollPosition = jQuery(this).scrollTop();
     var full_page_height = $("#facebook").height();
 
@@ -60,4 +46,4 @@ jQuery(window).scroll(function() {
         inSection = false;
     	$("#main-icon, #menu, #menu-status").removeClass('invert');
     }
-});
+});*/

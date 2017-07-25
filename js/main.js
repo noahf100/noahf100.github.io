@@ -5,7 +5,7 @@ var currColorRotation = 0;
 function toggleMenu() {
     $("#menu, #landing, #menu-status").toggleClass("active");
     if (!inSection) {
-        $("#menu, #main-icon, #menu-status").toggleClass("invert");
+        $("#menu").toggleClass("invert");
     }
     indicator = (indicator + 1) % 2;
     if (indicator == 1) {

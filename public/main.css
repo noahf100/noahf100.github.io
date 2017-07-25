@@ -486,6 +486,16 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     word-wrap: break-word;
 }
 
+.menu {
+    width: 320px;
+    height: 100%;
+    background: #BCAD90;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    transition: left .1s;
+}
+
 @media screen and (max-width: 1100px) {
     #menu-status {
         right: 10vw;

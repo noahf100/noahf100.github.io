@@ -168,13 +168,26 @@ a {
 }
 
 #landing {
-    background: black;
+    /*background: black;
     left: 0;
     position: fixed;
     top: 0;
     transform: translateY(-100%);
     transition: 0.3s all ease-in-out;
-    z-index: 2000;
+    z-index: 2000;*/
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+  
+    background: #ededed;
+    list-style-type: none;
+    z-indexwebkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+  
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
 }
 
 #landing.active {
@@ -599,13 +612,13 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
  * prefixes.
  */
 
-nav
+/*body
 {
   margin: 0;
   padding: 0;
   
   /* make it look decent enough */
-  background: #232323;
+  /*background: #232323;
   color: #cdcdcd;
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
@@ -621,7 +634,7 @@ a
 a:hover
 {
   color: tomato;
-}
+}*/
 
 #menuToggle
 {

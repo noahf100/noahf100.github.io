@@ -546,7 +546,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     }
 
     #contactIcons a img {
-        vertical-align: middle;
+        margin: 0 auto;
         height: 3vh;
         width: 3vh;
     }

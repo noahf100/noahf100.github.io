@@ -201,69 +201,6 @@ a {
     z-index: 2002;
 }
 
-.menuItem {
-    display: inline-block;
-    cursor: pointer;
-    color: white;
-    font-size: 24px;
-    font-family: 'Circular Book', Helvetica, Arial, sans-serif;
-    transition: 0.3s all ease-in-out;
-    z-index: 2002;
-}
-
-.menuItem:hover {  
-  color: -webkit-linear-gradient(left,
-    #b4e6fa 0%,
-    #ffe2b0 34%,
-    #ffd1b2 61%,
-    #ffbea6 74%,
-    #ffb4b8 86%,
-    #ddbfe0 100%
-  ) !important;
-  color: -moz-linear-gradient(left,
-    #b4e6fa 0%,
-    #ffe2b0 34%,
-    #ffd1b2 61%,
-    #ffbea6 74%,
-    #ffb4b8 86%,
-    #ddbfe0 100%
-  ) !important;
-  color: -o-linear-gradient(left,
-    #b4e6fa 0%,
-    #ffe2b0 34%,
-    #ffd1b2 61%,
-    #ffbea6 74%,
-    #ffb4b8 86%,
-    #ddbfe0 100%
-  ) !important;
-  color: linear-gradient(to right,
-    #b4e6fa 0%,
-    #ffe2b0 34%,
-    #ffd1b2 61%,
-    #ffbea6 74%,
-    #ffb4b8 86%,
-    #ddbfe0 100%
-  ) !important;
-  cursor: pointer;
-
-  font-size: 2em;
-
-  -webkit-transition: color 0.8s ease-in-out;
-  -moz-transition: color 0.8s ease-in-out;
-  -o-transition: color 0.8s ease-in-out;
-  transition: color 0.8s ease-in-out;
-
-  -webkit-transition: font-size 0.8s ease-in-out;
-  -moz-transition: font-size 0.8s ease-in-out;
-  -o-transition: font-size 0.8s ease-in-out;
-  transition: font-size 0.8s ease-in-out;
-}
-
-/*.menuItem:hover:after {
-    color: transparent;
-    transition: color 0.5s ease-in-out;
-}*/
-
 .landing-link:before, .landing-link:after {
     background: #fff;
     content: '';
@@ -356,7 +293,7 @@ a {
 }
 
 #menu.active {
-    transform: translateX(-6px);
+    transform: translateX(-10px);
 }
 
 #menu span {
@@ -607,7 +544,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     display: table;
     height: 100%;
     margin: auto;
-    min-width: 175px;
+    min-width: 200px;
     max-width: 500px;
     position: relative;
     text-align: center;

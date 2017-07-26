@@ -245,18 +245,10 @@ a {
     #ddbfe0 100%
   ) !important;
   cursor: pointer;
-
-  font-size: 2em;
-
   -webkit-transition: color 0.8s ease-in-out;
   -moz-transition: color 0.8s ease-in-out;
   -o-transition: color 0.8s ease-in-out;
   transition: color 0.8s ease-in-out;
-
-  -webkit-transition: font-size 0.8s ease-in-out;
-  -moz-transition: font-size 0.8s ease-in-out;
-  -o-transition: font-size 0.8s ease-in-out;
-  transition: font-size 0.8s ease-in-out;
 }
 
 /*.menuItem:hover:after {

@@ -219,7 +219,7 @@ a {
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
+  );
   color: -moz-linear-gradient(left,
     #b4e6fa 0%,
     #ffe2b0 34%,
@@ -227,7 +227,7 @@ a {
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
+  );
   color: -o-linear-gradient(left,
     #b4e6fa 0%,
     #ffe2b0 34%,
@@ -235,7 +235,7 @@ a {
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
+  );
   color: linear-gradient(to right,
     #b4e6fa 0%,
     #ffe2b0 34%,
@@ -243,20 +243,13 @@ a {
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
+  );
   cursor: pointer;
-
-  font-size: 2em;
-
-  -webkit-transition: color 0.8s ease-in-out;
-  -moz-transition: color 0.8s ease-in-out;
-  -o-transition: color 0.8s ease-in-out;
-  transition: color 0.8s ease-in-out;
-
-  -webkit-transition: font-size 0.8s ease-in-out;
-  -moz-transition: font-size 0.8s ease-in-out;
-  -o-transition: font-size 0.8s ease-in-out;
-  transition: font-size 0.8s ease-in-out;
+  font: 2em;
+  -webkit-transition: font 0.8s ease-in-out;
+  -moz-transition: font 0.8s ease-in-out;
+  -o-transition: font 0.8s ease-in-out;
+  transition: font 0.8s ease-in-out;
 }
 
 /*.menuItem:hover:after {

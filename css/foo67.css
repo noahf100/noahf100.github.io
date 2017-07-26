@@ -209,60 +209,54 @@ a {
     font-family: 'Circular Book', Helvetica, Arial, sans-serif;
     transition: 0.3s all ease-in-out;
     z-index: 2002;
+
+    background: #fff;
 }
 
-.menuItem:hover {  
-  color: -webkit-linear-gradient(left,
+.menuItem:hover:before {  
+  background: -webkit-linear-gradient(left,
     #b4e6fa 0%,
     #ffe2b0 34%,
     #ffd1b2 61%,
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
-  color: -moz-linear-gradient(left,
+  );
+  background: -moz-linear-gradient(left,
     #b4e6fa 0%,
     #ffe2b0 34%,
     #ffd1b2 61%,
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
-  color: -o-linear-gradient(left,
+  );
+  background: -o-linear-gradient(left,
     #b4e6fa 0%,
     #ffe2b0 34%,
     #ffd1b2 61%,
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
-  color: linear-gradient(to right,
+  );
+  background: linear-gradient(to right,
     #b4e6fa 0%,
     #ffe2b0 34%,
     #ffd1b2 61%,
     #ffbea6 74%,
     #ffb4b8 86%,
     #ddbfe0 100%
-  ) !important;
+  );
   cursor: pointer;
-
-  font-size: 2em;
-
-  -webkit-transition: color 0.8s ease-in-out;
-  -moz-transition: color 0.8s ease-in-out;
-  -o-transition: color 0.8s ease-in-out;
-  transition: color 0.8s ease-in-out;
-
-  -webkit-transition: font-size 0.8s ease-in-out;
-  -moz-transition: font-size 0.8s ease-in-out;
-  -o-transition: font-size 0.8s ease-in-out;
-  transition: font-size 0.8s ease-in-out;
+  -webkit-transition: background 0.5s ease-in-out;
+  -moz-transition: background 0.5s ease-in-out;
+  -o-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 
-/*.menuItem:hover:after {
+.menuItem:hover:after {
     color: transparent;
     transition: color 0.5s ease-in-out;
-}*/
+}
 
 .landing-link:before, .landing-link:after {
     background: #fff;

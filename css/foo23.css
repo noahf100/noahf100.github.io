@@ -318,29 +318,20 @@ a {
     transform: rotate(45deg) translateY(-8.5px);
 }
 
-#section {
-    z-index: 50;
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    text-align: center;
-}
-
 #hello {
     z-index: 50;
-    display: inline-block;
+    display: table-cell;
     font-size: 6vh;
     vertical-align: middle;
     width: 100%;
     text-align: center;
-    margin: 0 auto;
 }
 
 #school {
     z-index: 50;
-    display: inline-block;
+    display: table-cell;
     font-size: 3vh;
-    vertical-align: middle;
+    vertical-align: bottom;
     width: 100%;
     text-align: center;
 }
@@ -459,20 +450,18 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     background-color: #62A9FF;
 }
 
-#contactContainer {
-    text-align: left;
-}
-
 #contactIcons {
     position: absolute;
     display: inline-block;
+    float: left;
     height: 4vh;
     min-width: 200px;
     max-width: 100vw;
-    text-align: left;
+
+    text-align: center;
     /*top: 60%;
-    left: 50%;*/
-    transform: translateX(-45%);
+    left: 50%;
+    transform: translateX(-45%);*/
 }
 
 #contactIcons a:hover {

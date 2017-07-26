@@ -459,22 +459,20 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     background-color: #62A9FF;
 }
 
-.contactContainer {
-    width: 100%;
-    text-align: center;
+#contactContainer {
+    text-align: left;
 }
 
 #contactIcons {
-    position: relative;
+    position: absolute;
     display: inline-block;
     height: 4vh;
-    /*min-width: 200px;
-    max-width: 100vw;*/
-    /*text-align: center;*/
+    min-width: 200px;
+    max-width: 100vw;
+    text-align: center;
     /*top: 60%;
     left: 50%;*/
     transform: translateX(-50%);
-    transform: translateY(10%);
 }
 
 #contactIcons a:hover {
@@ -555,7 +553,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     font-size: 5vh;
     width: 50vw;
     max-width: 50vw;
-    min-width: 30vw;
+    min-width: 200px;
     overflow: hidden;
     padding: 0 20vw 0 20vw;
     text-align: left;

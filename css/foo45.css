@@ -459,13 +459,13 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     background-color: #62A9FF;
 }
 
-.contactContainer {
+#contactContainer {
     width: 100%;
     text-align: center;
 }
 
 #contactIcons {
-    position: relative;
+    position: absolute;
     display: inline-block;
     height: 4vh;
     /*min-width: 200px;
@@ -555,7 +555,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     font-size: 5vh;
     width: 50vw;
     max-width: 50vw;
-    min-width: 30vw;
+    min-width: 20vw;
     overflow: hidden;
     padding: 0 20vw 0 20vw;
     text-align: left;

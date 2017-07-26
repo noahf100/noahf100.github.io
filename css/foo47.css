@@ -465,7 +465,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
 }
 
 #contactIcons {
-    position: relative;
+    position: absolute;
     display: inline-block;
     height: 4vh;
     /*min-width: 200px;
@@ -544,7 +544,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     display: table;
     height: 100%;
     margin: auto;
-    min-width: 20vw;
+    min-width: 30vw;
     position: relative;
     text-align: center;
     width: 20%;

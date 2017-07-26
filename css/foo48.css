@@ -465,7 +465,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
 }
 
 #contactIcons {
-    position: relative;
+    position: absolute;
     display: inline-block;
     height: 4vh;
     /*min-width: 200px;
@@ -473,7 +473,7 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
     /*text-align: center;*/
     /*top: 60%;
     left: 50%;*/
-    transform: translateX(-50%);
+    transform: translateX(-100%);
     transform: translateY(10%);
 }
 
@@ -537,17 +537,17 @@ background: linear-gradient(to bottom right, #c1d8e0, #cddadd, #d6d4ce, #d6ccc1,
 }
 
 .drawer {
-    -webkit-background-size: 20% 100%;
-    -moz-background-size: 20% 100%;
-    -o-background-size: 20% 100%;
-    background-size: 20% 100%;
+    -webkit-background-size: 30vw 100%;
+    -moz-background-size: 30vw 100%;
+    -o-background-size: 30vw 100%;
+    background-size: 30vw 100%;
     display: table;
     height: 100%;
     margin: auto;
-    min-width: 20vw;
+    min-width: 30vw;
     position: relative;
     text-align: center;
-    width: 20%;
+    width: 30vw;
 }
 
 .drawer p {

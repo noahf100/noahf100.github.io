@@ -17,9 +17,7 @@ function toggleMenu() {
 
 $(document).ready(function() {
     $("#main-icon").click(function() {
-        $("html, body").animate({
-            scrollTop: 0
-        }, 1000);
+        window.location.href = 'noahfang.me';
     });
 
     $(document.body).on("click", ".landing-link", function() {

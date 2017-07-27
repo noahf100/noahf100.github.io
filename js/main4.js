@@ -17,22 +17,22 @@ function toggleMenu() {
 
 $(document).ready(function() {
     $("#main-icon").click(function() {
-        window.location.href = 'http://noahfang.me';
+        window.location.href = 'noahfang.me';
     });
 
     $(document.body).on("click", ".menuItem", function() {
         var selectedID = $(this).attr('id').split("-")[1];
         if(selectedID == "a"){
-            window.location.href = 'http://noahfang.me/education.html';
+            window.location.href = 'noahfang.me/_layouts/education.html';
         }
         else if(selectedID == "b"){
-            window.location.href = 'http://noahfang.me/skills.html';
+            window.location.href = 'skills.html';
         }
         else if(selectedID == "c"){
-            window.location.href = 'http://noahfang.me/interests.html';
+            window.location.href = 'interests.html';
         }
         else if(selectedID == "d"){
-            window.location.href = 'http://noahfang.me';
+            window.location.href = 'default.html';
         }
         console.log(selectedID);
         toggleMenu();

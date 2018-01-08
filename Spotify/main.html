@@ -47,52 +47,52 @@ var g = gameCanvas.getContext('2d');
 
 gameCanvas.width = window.innerWidth;
 gameCanvas.height = window.innerHeight;
-maxWidth = gameCanvas.width;
-maxHeight = gameCanvas.height;
+var maxWidth = gameCanvas.width;
+var maxHeight = gameCanvas.height;
 
 //Characters
 var globalX = 0;
+var sun = new Object("assets/Sun.png", 0, 0, 500, 500);
 
 var factor = 0.67;
 var size = 0.1*maxWidth;
-var player = new Object("assets/logo.png", 0.3*maxWidth, Math.floor(factor*maxHeight) - size, size, size);
+var player = new Object("assets/Note.png", 0.3*maxWidth, Math.floor(factor*maxHeight) - size, size, size);
 player.G = 20;
 player.MG = 0.1;
-
-//var music = new Audio();
 
 //Buttons
 var pageSize = 0.75*maxWidth
 var instructions = new Object("assets/Butt1.png", 0.1*maxWidth, factor/2*maxHeight, size, size/2);
-var website = new Object("assets/Butt2.png", 7*pageSize, 0.05*maxHeight, size, size/2);
-var again = new Object("assets/Butt3.png", 7*pageSize, 0.05*maxHeight + size, size, size/2);
+var website = new Object("assets/Butt2.png", 6.5*pageSize, 0.05*maxHeight, size, size/2);
+var again = new Object("assets/Butt3.png", 6.5*pageSize, 0.05*maxHeight + size, size, size/2);
+var wrapped = new Object("assets/Butt4.png", 6.5*pageSize, 0.05*maxHeight + 2*size, size, size/2);
 
 var buttons = [
   instructions, 
   website, 
-  again
+  again,
+  wrapped
 ];
 
 //Content
 var content = [
   new Object("assets/Spotify1.png", 1*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Noah Fang
   new Object("assets/Spotify2.png", 2*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Music
-  new Object("assets/cello.jpg", 3*pageSize, 0, 0.33*pageSize, Math.floor(factor*maxHeight)), //Cello pic
-  new Object("assets/cello.jpg", 3.5*pageSize, 0, 0.33*pageSize, Math.floor(factor*maxHeight)), //Clarinet pic
-  new Object("assets/Spotify3.png", 4*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Coursework
-  new Object("assets/Spotify4.png", 5*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Previous Work
-  new Object("assets/Spotify5.png", 6*pageSize, 0, pageSize, Math.floor(factor*maxHeight)) //About Me
+  new Object("assets/cello.jpg", 3*pageSize, 0.05*maxHeight, 0.33*pageSize, Math.floor(factor*maxHeight) - 0.1*maxHeight), //Cello pic
+  new Object("assets/Spotify3.png", 3.5*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Coursework
+  new Object("assets/Spotify4.png", 4.5*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Previous Work
+  new Object("assets/Spotify5.png", 5.5*pageSize, 0, pageSize, Math.floor(factor*maxHeight)) //About Me
 ];
 
 //Blocks
 var maxBlock = 6;
 var block = new Array();
 for(var i = 0; i < maxBlock; i++){
-  block[i] = new Object("assets/block.png", i*50, 350, 50, 50);
+  block[i] = new Object("assets/block.png", i*maxWidth/maxBlock, Math.floor(factor*maxHeight), maxWidth/maxBlock, Math.floor((1 - factor)*maxHeight));
 }
 
 //Trees
-var maxTree = 75;
+var maxTree = 70;
 var prevTree = Math.floor(Math.random() * 500) + 10;
 var fileName = "assets/tree.png";
 var tree = new Array();
@@ -110,7 +110,10 @@ for(var i = 0; i < maxTree; i++){
 //Moving
 var isLeft = false;
 var isRight = false;
-var bigJump = false
+var bigLeft = false;
+var bigRight = false;
+
+var isJump = false;
 
 //Events
 function keyDown(e){
@@ -120,8 +123,14 @@ function keyDown(e){
   else if(String.fromCharCode(e.keyCode) === "A"){
     isLeft = true;
   }
-  else if(String.fromCharCode(e.keyCode) === "G"){
-    bigJump = true;
+  else if(String.fromCharCode(e.keyCode) === "K"){
+    bigLeft = true;
+  }
+  else if(String.fromCharCode(e.keyCode) === "L"){
+    bigRight = true;
+  }
+  else if(String.fromCharCode(e.keyCode) === "W"){
+    isJump = true;
   }
 }
 
@@ -132,8 +141,14 @@ function keyUp(e){
   else if(String.fromCharCode(e.keyCode) == "A"){
     isLeft = false;
   }
-  else if(String.fromCharCode(e.keyCode) === "G"){
-    bigJump = false;
+  else if(String.fromCharCode(e.keyCode) === "K"){
+    bigLeft = false;
+  }
+  else if(String.fromCharCode(e.keyCode) === "L"){
+    bigRight = false;
+  }
+  else if(String.fromCharCode(e.keyCode) === "W"){
+    isJump = false;
   }
 }
 
@@ -141,11 +156,14 @@ function isIn(obj){
   return obj.X + obj.W > 0 && obj.X < maxWidth;
 }
 
+var max = 4500;
+
+checkMob();
 main();
 function main(){
 
   globalX += player.velX;
-  if(globalX >= 0 && globalX <= 5400){
+  if(globalX >= 0 && globalX <= max){
     for(var i = 0; i < maxTree; i++){
       tree[i].X -= player.velX; 
     }
@@ -160,8 +178,8 @@ function main(){
     if(globalX < 0){
       globalX = 0;
     }
-    if(globalX > 5400){
-      globalX = 5400;
+    if(globalX > max){
+      globalX = max;
     }
   }
 
@@ -170,7 +188,13 @@ function main(){
 player.Y += player.velY;
 
 //Movement
-if(isLeft){
+if(bigLeft){
+  player.velX = -20;
+}
+else if(bigRight){
+  player.velX = 20;
+}
+else if(isLeft){
   player.velX = -3;
 }
 else if(isRight){
@@ -179,12 +203,10 @@ else if(isRight){
 else{
   player.velX = 0;
 }
-if(bigJump){
-  player.velX = 20;
-}
 
 //Rendering
 g.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+g.drawImage(sun.img, maxWidth - maxWidth * globalX/max - size/2, -size/2, size, size);
 
 for(var i = 0; i < maxBlock; i++){
   g.drawImage(block[i].img, i*maxWidth/maxBlock, Math.floor(factor*maxHeight), maxWidth/maxBlock, Math.floor((1 - factor)*maxHeight));
@@ -195,6 +217,8 @@ for(var i = 0; i < maxTree; i++){
     g.drawImage(tree[i].img, tree[i].X, Math.floor(factor*maxHeight) - size, size, size);
   }
 }
+
+g.drawImage(player.img, player.X, player.Y, player.W, player.H);
 
 for(var i = 0; i < content.length; i++){
   if(isIn(content[i])){
@@ -208,7 +232,6 @@ for(var i = 0; i < buttons.length; i++){
   }
 }
 
-g.drawImage(player.img, player.X, player.Y, player.W, player.H);
 window.requestAnimationFrame(main);
 }
 
@@ -232,13 +255,19 @@ function Object(image, x, y, width, height){
   this.MG = 0;
 
   this.isColliding = function(obj){
-    if(this.X <= obj.X + obj.W && this.X >= obj.X){
-      if(this.Y <= obj.Y + obj.H && this.Y >= obj.Y){
+    if((this.X <= obj.X + obj.W && this.X >= obj.X) || (this.X + this.W <= obj.X + obj.W && this.X + this.W >= obj.X)){
+      if((this.Y <= obj.Y + obj.H && this.Y >= obj.Y) || (this.Y + this.H <= obj.Y + obj.H && this.Y + this.H >= obj.Y)){
         return true;
       }
     }
     return false;
   }
+}
+
+function checkMob(){
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    window.location.href = "http://noahfang.me/Spotify/broken.html";
+  } 
 }
 
 //Function to get the mouse position
@@ -256,6 +285,11 @@ function mouseClicked(event){
   else if(isInside(x, y, again)){
     location.reload();
   } 
+  else if(isInside(x, y, wrapped)){
+    var url = "https://open.spotify.com/user/spotify/playlist/37i9dQZF1E9TyXTCtXGB8k";
+    var win = window.open(url, '_blank');
+    win.focus();
+  }
 }
 //Function to check whether a point is inside a rectangle
 function isInside(x, y, rect){

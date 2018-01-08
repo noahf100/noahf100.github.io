@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Spotify Cover Letter"/>
+    <meta name="author" content="Noah Fang"/>
+
+    <title>Spotify Cover Letter</title>
+
+    <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Favicon -->
+    <link href="../icons/favicon.png" rel="icon">
+
+    <style>
+      html, body {                                                  
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      border: 0;
+      overflow: hidden;
+      display: block;
+      }
+      canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      }
+    </style>
+</head>
+
+
+<body onkeydown="keyDown(event)" onkeyup="keyUp(event)"></body>
+<canvas id="graphics" width=600 height=400 style="position:absolute;top:0;left:0;background-image:url('assets/background.png');"></canvas>
+
+<script>
+//Canvas
+var gameCanvas = document.getElementById("graphics");
+var g = gameCanvas.getContext('2d');
+
+gameCanvas.width = window.innerWidth;
+gameCanvas.height = window.innerHeight;
+maxWidth = gameCanvas.width;
+maxHeight = gameCanvas.height;
+
+//Characters
+var factor = 0.67;
+var size = 0.1*maxWidth;
+var player = new Object("assets/logo.png", 0.3*maxWidth, Math.floor(factor*maxHeight) - size, size, size);
+player.G = 20;
+player.MG = 0.1;
+
+//var music = new Audio();
+
+//Content
+var pageSize = 0.75*maxWidth
+var content = [
+new Object("assets/Spotify1.png", 1*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Noah Fang
+new Object("assets/Spotify2.png", 2*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Music
+
+new Object("assets/Spotify3.png", 3*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Coursework
+new Object("assets/Spotify4.png", 4*pageSize, 0, pageSize, Math.floor(factor*maxHeight)), //Previous Work
+new Object("assets/Spotify5.png", 5*pageSize, 0, pageSize, Math.floor(factor*maxHeight)) //About Me
+];
+
+//Blocks
+var maxBlock = 6;
+var block = new Array();
+for(var i = 0; i < maxBlock; i++){
+block[i] = new Object("assets/block.png", i*50, 350, 50, 50);
+}
+
+//Trees
+var maxTree = 100;
+var prevTree = Math.floor(Math.random() * 500) + 10;
+var fileName = "assets/tree.png";
+var tree = new Array();
+for(var i = 0; i < maxTree; i++){
+if(Math.random() >= 0.5){
+filename = "assets/tree.png";
+}
+else{
+filename = "assets/tree2.png";
+}
+prevTree += Math.floor(Math.random() * 25) + 75;
+tree[i] = new Object(filename, prevTree, 300, 50, 50);
+}
+
+//Moving
+var isLeft = false;
+var isRight = false;
+
+//Events
+function keyDown(e){
+if(String.fromCharCode(e.keyCode) === "D"){
+isRight = true;
+}
+else if(String.fromCharCode(e.keyCode) === "A"){
+isLeft = true;
+}
+}
+
+function keyUp(e){
+if(String.fromCharCode(e.keyCode) == "D"){
+isRight = false;
+}
+else if(String.fromCharCode(e.keyCode) == "A"){
+isLeft = false;
+}
+}
+
+
+main();
+function main(){
+
+if(tree[0].X <= maxWidth && tree[maxTree - 1].X >= 0){
+for(var i = 0; i < maxTree; i++){
+tree[i].X -= player.velX; 
+}
+for(var i = 0; i < content.length; i++){
+content[i].X -= player.velX;
+}
+}
+
+
+//player.X += player.velX;
+player.Y += player.velY;
+
+//Movement
+if(isLeft){
+player.velX = -3;
+}
+else if(isRight){
+player.velX = 3;
+}
+else{
+player.velX = 0;
+}
+
+//Rendering
+g.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+for(var i = 0; i < maxBlock; i++){
+g.drawImage(block[i].img, i*maxWidth/maxBlock, Math.floor(factor*maxHeight), maxWidth/maxBlock, Math.floor((1 - factor)*maxHeight));
+}
+
+for(var i = 0; i < maxTree; i++){
+if(tree[i].X > 0 && tree[i].X < maxWidth){
+g.drawImage(tree[i].img, tree[i].X, Math.floor(factor*maxHeight) - size, size, size);
+}
+}
+
+for(var i = 0; i < content.length; i++){
+if(content[i].X > 0 && content[i].X < maxWidth){
+g.drawImage(content[i].img, content[i].X, content[i].Y, content[i].W, content[i].H);
+}
+}
+
+g.drawImage(player.img, player.X, player.Y, player.W, player.H);
+window.requestAnimationFrame(main);
+}
+
+function Object(image, x, y, width, height){
+this.img = new Image();
+this.img.src = image;
+this.img.height = height;
+this.img.width = width;
+
+this.X = x;
+this.Y = y;
+this.prev_X = x;
+this.prev_Y = y;
+this.velX = 0;
+this.velY = 0;
+this.W = width;
+this.H = height;
+
+//In case I want gravity
+this.G = 0;
+this.MG = 0;
+
+this.isColliding = function(obj){
+if(this.X <= obj.X + obj.W && this.X >= obj.X){
+    if(this.Y <= obj.Y + obj.H && this.Y >= obj.Y){
+      return true;
+      }
+}
+return false;
+}
+}
+
+</script>

@@ -264,10 +264,17 @@ function Object(image, x, y, width, height){
   }
 }
 
+//Check mobile device
 function checkMob(){
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     window.location.href = "http://noahfang.me/Spotify/broken.html";
   } 
+}
+
+//Goto Url
+function goTo(url){
+  var win = window.open(url, '_blank');
+  win.focus();
 }
 
 //Function to get the mouse position
@@ -280,15 +287,15 @@ function mouseClicked(event){
     window.location.href = "http://noahfang.me/Spotify/Instructions/instructions.html";
   }
   else if(isInside(x, y, website)){
-    window.location.href = "http://noahfang.me";
+    var url = "http://noahfang.me";
+    goTo(url);
   }  
   else if(isInside(x, y, again)){
     location.reload();
   } 
   else if(isInside(x, y, wrapped)){
     var url = "https://open.spotify.com/user/spotify/playlist/37i9dQZF1E9TyXTCtXGB8k";
-    var win = window.open(url, '_blank');
-    win.focus();
+    goTo(url);
   }
 }
 //Function to check whether a point is inside a rectangle

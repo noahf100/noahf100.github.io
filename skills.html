@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Noah's Website"/>
+    <meta name="author" content="Noah Fang"/>
+
+    <title>Noah Fang</title>
+
+    <!-- CSS -->
+    <link href="css/foo.css" rel="stylesheet" media="all">
+    <link href="css/hover.css" rel="stylesheet" media="all">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+    <script src="js/main6.js" type="text/javascript"></script>
+
+    <!-- FontAwesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Favicon -->
+    <link href="icons/favicon.png" rel="icon">
+</head>
+
+<body>
+  <section id="landing" class="drawer">
+    <span class="menuItem" id="goto-a">Education</span>
+    <span class="menuItem" id="goto-b">Skills</span>
+    <span class="menuItem" id="goto-c">Interests</span>
+    <span class="menuItem" id="goto-d">Contact</span>
+</section>
+<section id="header" class="fade-in">
+    <img src="icons/favicon.png" id="main-icon"></img>
+    <div id="menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+</section>
+<section id="skills" class="fullPage fade-in">
+    <div><p class="circular-book">I'm fluent in</p></div>
+       <div><ul>
+            <li>Java</li>
+            <li>Python</li>
+            <li>Scala</li>
+            <li>Unix Shell</li>
+        </ul></div>
+
+    <div><p class="circular-book">I'm familiar with</p></div>
+        <div><ul>
+	    <li>Deep Learning</li>
+            <li>OCaml</li>
+            <li>Racket</li>
+            <li>C</li>
+        </ul></div>
+
+    <div><p class="circular-book">I know</p></div>
+        <div><ul>
+            <li>MongoDb</li>
+            <li>PostgresSQL</li>
+            <li>Machine Learning</li>
+            <li>Logic and Logic Systems</li>
+            <li>Statistical Inference</li>
+        </ul></div>
+
+</section>
+
+<div id="footer">
+    <h4 class="circular-light" id="footer-text">© Noah Fang 2017</h4>
+</div>
+
+</body>
+</html>

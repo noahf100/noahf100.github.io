@@ -62,10 +62,12 @@ player.MG = 0.1;
 
 //Buttons
 var pageSize = 0.75*maxWidth
-var instructions = new Object("assets/Butt1.png", 0.1*maxWidth, factor/2*maxHeight, 2*size, size);
-var website = new Object("assets/Butt2.png", 6.5*pageSize, 0.05*maxHeight, 2*size, size);
-var again = new Object("assets/Butt3.png", 6.5*pageSize, 0.05*maxHeight + size, 2*size, size);
-var wrapped = new Object("assets/Butt4.png", 6.5*pageSize, 0.05*maxHeight + 2*size, 2*size, size);
+var wMult = 1.5;
+var hMult = 0.75;
+var instructions = new Object("assets/Butt1.png", 0.1*maxWidth, factor/2*maxHeight, wMult*size, hMult*size);
+var website = new Object("assets/Butt2.png", 6.5*pageSize, 0.05*maxHeight, wMult*size, hMult*size);
+var again = new Object("assets/Butt3.png", 6.5*pageSize, 0.05*maxHeight + size, wMult*size, hMult*size);
+var wrapped = new Object("assets/Butt4.png", 6.5*pageSize, 0.05*maxHeight + 2*size, wMult*size, hMult*size);
 
 var buttons = [
   instructions, 

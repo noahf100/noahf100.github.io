@@ -29,10 +29,10 @@
   <div style="text-align: center;"></div>
     <div style="text-align: center;">
       <p style="color:black" class="circular-book">
-	"A" -> move left <br/>
-	"D" -> move right <br/>
-	"K" -> move left quickly <br/>
-	"L" -> move right quickly
+	A -> move left <br/>
+	D -> move right <br/>
+	K -> move left quickly <br/>
+	L -> move right quickly
     </p>
     </div>
 

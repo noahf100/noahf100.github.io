@@ -29,10 +29,10 @@
   <div style="text-align: center;"></div>
     <div style="text-align: center;">
       <p style="color:black" class="circular-book">
-	A = move left <br/>
-	D = move right <br/>
-	K = move left quickly <br/>
-	L = move right quickly
+	A œôöòove left <br/>
+	D -> move right <br/>
+	K -> move left quickly <br/>
+	L -> move right quickly
     </p>
     </div>
 
@@ -41,7 +41,7 @@
 </section>
 
 <div id="footer">
-    <h4 class="circular-light" id="footer-text">Â© Noah Fang 2017</h4>
+    <h4 class="circular-light" id="footer-text">© Noah Fang 2017</h4>
 </div>
 
 </body>

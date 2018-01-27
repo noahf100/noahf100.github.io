@@ -263,7 +263,20 @@ function onClick () {
     portal = portalDoor;
   }
   else{
-    portal.insideMesh.getObjectByName("mesh").geometry.dispose();
+    for (let i = scene.children.length - 1; i >= 0; i--) {
+      if(scene.children[i].type === "Mesh"){
+        scene.children[i].dispose();
+        scene.remove(scene.children[i]);
+      }
+      else if(scene.children[i].type === "Geometry"){
+        scene.children[i].dispose();
+        scene.remove(scene.children[i]);
+      }
+      else{
+        scene.remove(scene.children[i]);
+      }
+    }
+    /*portal.insideMesh.getObjectByName("mesh").geometry.dispose();
     portal.insideMesh.getObjectByName("mesh").material.dispose();
     portal.outsideMesh.getObjectByName("mesh").geometry.dispose();
     portal.outsideMesh.getObjectByName("mesh").material.dispose();
@@ -280,12 +293,13 @@ function onClick () {
     portal.object.remove(portal.insideMesh);
     portal.object.remove(portal.outsideMesh);
     portal.object.remove(portal.frameMesh);
-    scene.remove(portal.object);
+    scene.remove(portal.object);*.
   }
 
   scene.add(portalDoor.object);
   portalDoor.object.position.copy(pos);
   portalDoor.object.quaternion.copy(ori);
+
   //portals.push(portalDoor);
   audio[Math.floor(Math.random()*audio.length)].play();
 }

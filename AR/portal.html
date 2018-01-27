@@ -471,20 +471,20 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 //    update function
 //////////////////////////////////////////////////////////////////////////////
-function updatePortal(object) {
+function updatePortal(portal) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
-  object.worldToLocal(localPosition);
+  portal.object.worldToLocal(localPosition);
   var isOutsidePortal = localPosition.z >= 0 ? true : false;
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){
-    object.outsideMesh.visible = true;
-    object.insideMesh.visible = false;
+    portal.outsideMesh.visible = true;
+    portal.insideMesh.visible = false;
   }
   else{
-    object.outsideMesh.visible = false;
-    object.insideMesh.visible = true;
+    portal.outsideMesh.visible = false;
+    portal.insideMesh.visible = true;
   }
 }
 </script>

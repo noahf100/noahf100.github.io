@@ -247,14 +247,15 @@ function onClick () {
   var portalDoor = new Portal360(images[Math.floor(Math.random()*images.length)], 1, 2);
   //scene.add(portalDoor.object3d);
   scene.add(portalDoor.object);
-  portalDoor.object.position.copy(pos);
-  portalDoor.object.quaternion.copy(ori);
+  
   portals.push(portalDoor);
 }
 
 function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   
   this.object = new THREE.Group;
+  this.object.position.copy(pos);
+  //this.object.quaternion.copy(ori);
   this.object.position.y = doorHeight/4;
   this.width = doorWidth;
   this.height = doorHeight;
@@ -504,7 +505,7 @@ function isIn(x, y, z, myX, myY, myZ, width, height, counter){
   }
   
   //return (x >= myX - width/2 && x <= myX + width/2) && (y >= myY  - height/2) && (y <= myY + height/2) && (z <= myZ);
-  return z <= 0;
+  return y <= 0;
 }
 
 function updatePortal(portal, vec, counter) {

@@ -490,7 +490,8 @@ function isIn(x, y, z, myX, myY, myZ, width, height, counter){
     alert(z <= myZ);
   }
   
-  return (x >= myX - width/2 && x <= myX + width/2) && (y >= myY  - height/2) && (y <= myY + height/2) && (z <= myZ);
+  //return (x >= myX - width/2 && x <= myX + width/2) && (y >= myY  - height/2) && (y <= myY + height/2) && (z <= myZ);
+  return z <= myZ;
 }
 
 function updatePortal(portal, vec, counter) {

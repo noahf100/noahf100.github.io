@@ -285,6 +285,7 @@ function Portal360(videoImageURL, doorWidth, doorHeight){
   var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight);
   doorCenter.add(frameMesh);
   this.object3d = doorCenter;
+  alert("end");
   //return doorCenter;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -468,7 +469,7 @@ function _buildRectangularFrame(radius, width, height){
   meshBottom.position.y = -height/2
   container.add(meshBottom)
 
-  return container
+  return container;
 } 
 
 //////////////////////////////////////////////////////////////////////////////

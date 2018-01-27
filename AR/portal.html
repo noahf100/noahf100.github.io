@@ -161,14 +161,17 @@ function init() {
   // Kick off the render loop!
   update();
 }
+
+var counter = 0;
 /**
  * The render loop, called once per frame. Handles updating
  * our scene and rendering.
  */
 function update() {
   for(var i = 0; i < portals.length; i++){
-    updatePortal(portals[i]);
+    updatePortal(portals[i], counter);
   }
+  counter++;
   // Clears color from the frame before rendering the camera (arView) or scene.
   renderer.clearColor();
   // Render the device's camera stream on screen first of all.
@@ -474,10 +477,13 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 //    update function
 //////////////////////////////////////////////////////////////////////////////
-function updatePortal(portal) {
+function updatePortal(portal, counter) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
+  if (counter%1000 == 0){
+    alert(localPosition.z);
+  }
   var isOutsidePortal = localPosition.z >= 0 ? true : false;
 
   // handle mesh visibility based on isOutsidePortal

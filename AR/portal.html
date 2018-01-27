@@ -190,7 +190,7 @@ function init() {
     scene.add(model);
   });*/
 
-  scene.add(portalDoor);
+  scene.add(portalDoor.object3d);
 
   // Bind our event handlers
   window.addEventListener('resize', onWindowResize, false);
@@ -205,6 +205,8 @@ function init() {
  * our scene and rendering.
  */
 function update() {
+  updatePortal(portalDoor);
+
   // Clears color from the frame before rendering the camera (arView) or scene.
   renderer.clearColor();
 
@@ -534,7 +536,7 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 //    update function
 //////////////////////////////////////////////////////////////////////////////
-function update(portal) {
+function updatePortal(portal) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3
   portal.object3d.worldToLocal(localPosition)

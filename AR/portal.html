@@ -484,6 +484,9 @@ function _buildRectangularFrame(radius, width, height){
 //    update function
 //////////////////////////////////////////////////////////////////////////////
 function isIn(x, y, z, myX, myY, myZ, width, height){
+  alert(x >= myX - width/2 && x <= myX + width/2);
+  alert(y >= myY  - height/2 && y <= myY + height/2);
+  alert(z <= myZ);
   return x >= myX - width/2 && x <= myX + width/2 && y >= myY  - height/2 && y <= myY + height/2 && z <= myZ;
 }
 
@@ -491,9 +494,6 @@ function updatePortal(portal, vec, counter) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
-  if (counter%1000 == 0){
-    alert(localPosition.z);
-  }
   //var isOutsidePortal = localPosition.z >= 0 ? true : false;
   portal.object.worldToLocal(vec);
   var isOutsidePortal = isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, localPosition.z, localPosition.width, localPosition.height);

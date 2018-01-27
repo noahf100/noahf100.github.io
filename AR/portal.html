@@ -99,6 +99,15 @@ var images = [
   "./assets/IMG_1733.jpg",
   "./assets/IMG_1736.jpg",
 ];
+var audio = [
+  new Audio("./assets/get_schwifty_in_here.wav"),
+  new Audio("./assets/Hi_I'm_mr_meeseeks_look_at_me.wav"),
+  new Audio("./assets/I_like_what_you_got.wav"),
+  new Audio("./assets/Oooo_yeah__caaan_doo!.wav"),
+  new Audio("./assets/rick.wav"),
+  new Audio("./assets/Riggity.wav"),
+  new Audio("./assets/woo_vu_luvub_dub_dub.wav")
+];
 /**
  * Use the `getARDisplay()` utility to leverage the WebVR API
  * to see if there are any AR-capable WebVR VRDisplays. Returns
@@ -250,6 +259,7 @@ function onClick () {
   portalDoor.object.position.copy(pos);
   portalDoor.object.quaternion.copy(ori);
   portals.push(portalDoor);
+  audio[Math.floor(Math.random()*audio.length)].play();
 }
 
 function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){

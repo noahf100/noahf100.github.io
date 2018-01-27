@@ -92,7 +92,12 @@ var colors = [
 ];
 var portals = [];
 var images = [
-  'https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg'
+  //'https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg'
+  "./assets/IMG_1727.jpg",
+  "./assets/IMG_1728.jpg",
+  "./assets/IMG_1732.jpg",
+  "./assets/IMG_1733.jpg",
+  "./assets/IMG_1736.jpg",
 ];
 /**
  * Use the `getARDisplay()` utility to leverage the WebVR API
@@ -235,7 +240,7 @@ function onClick () {
   // Clone our cube object and place it at the camera's
   // current position
   //var clone = cube.clone();
-  var portalDoor = new Portal360('./assets/IMG_0186.jpg', 1, 2);
+  var portalDoor = new Portal360(images[Math.floor(Math.random()*images.length)], 0.5, 1);
   //scene.add(portalDoor.object3d);
   scene.add(portalDoor.object);
   portalDoor.object.position.copy(pos);
@@ -484,11 +489,11 @@ function _buildRectangularFrame(radius, width, height){
 //    update function
 //////////////////////////////////////////////////////////////////////////////
 function isIn(x, y, z, myX, myY, myZ, width, height, counter){
-  if(counter%1000 == 0){
+  /*if(counter%1000 == 0){
     alert(x >= myX - width/2 && x <= myX + width/2);
     alert(y >= myY  - height/2 && y <= myY + height/2);
     alert(z <= myZ);
-  }
+  }*/
   
   //return (x >= myX - width/2 && x <= myX + width/2) && (y >= myY  - height/2) && (y <= myY + height/2) && (z <= myZ);
   return z <= myZ;

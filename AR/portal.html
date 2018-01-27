@@ -468,8 +468,8 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 function updatePortal(portal) {
   // determine if the user is isOutsidePortal
-  var localPosition = new THREE.Vector3
-  portal.object3d.worldToLocal(localPosition)
+  //var localPosition = new THREE.Vector3
+  //portal.object3d.worldToLocal(localPosition)
   var isOutsidePortal = localPosition.z >= 0 ? true : false
 
   // handle mesh visibility based on isOutsidePortal

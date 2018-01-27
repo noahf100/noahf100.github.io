@@ -164,7 +164,7 @@ function init() {
  */
 function update() {
   for(var i = 0; i < portals.length; i++){
-    updatePortal(portals[i].object);
+    updatePortal(portals[i]);
   }
   // Clears color from the frame before rendering the camera (arView) or scene.
   renderer.clearColor();
@@ -231,7 +231,6 @@ function onClick () {
   portalDoor.object.position.copy(pos);
   portalDoor.object.quaternion.copy(ori);
   portals.push(portalDoor);
-  alert("oof");
 }
 
 function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){

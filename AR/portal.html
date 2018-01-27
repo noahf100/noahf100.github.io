@@ -497,9 +497,10 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 function isIn(x, y, z, myX, myY, myZ, width, height, counter){
   if(counter%1000 == 0){
-    alert(x >= myX - width/2 && x <= myX + width/2);
-    alert(y >= myY  - height/2 && y <= myY + height/2);
-    alert(z <= myZ);
+    //alert(x >= myX - width/2 && x <= myX + width/2);
+    //alert(y >= myY  - height/2 && y <= myY + height/2);
+    //alert(z <= myZ);
+    alert(x + ", " + myX + " - " + y + ", " + myY + " - " + z + ", " + myZ);
   }
   
   //return (x >= myX - width/2 && x <= myX + width/2) && (y >= myY  - height/2) && (y <= myY + height/2) && (z <= myZ);

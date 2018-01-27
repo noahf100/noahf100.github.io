@@ -90,6 +90,7 @@ var colors = [
   new THREE.Color( 0x0000ff ),
   new THREE.Color( 0x000000 )
 ];
+var portals = [];
 /**
  * Use the `getARDisplay()` utility to leverage the WebVR API
  * to see if there are any AR-capable WebVR VRDisplays. Returns
@@ -162,6 +163,9 @@ function init() {
  * our scene and rendering.
  */
 function update() {
+  for(var i = 0; i < portals.length; i++){}
+    updatePortal(portals[i]);
+  }
   // Clears color from the frame before rendering the camera (arView) or scene.
   renderer.clearColor();
   // Render the device's camera stream on screen first of all.
@@ -221,10 +225,11 @@ function onClick () {
   // Clone our cube object and place it at the camera's
   // current position
   //var clone = cube.clone();
-  var portalDoor = Portal360('https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg', 5, 10)
+  var portalDoor = Portal360('https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg', 5, 10);
   scene.add(portalDoor);
   portalDoor.position.copy(pos);
   portalDoor.quaternion.copy(ori);
+  portals.push(portalDoor);
 }
 
 function Portal360(videoImageURL, doorWidth, doorHeight){
@@ -468,8 +473,8 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 function updatePortal(portal) {
   // determine if the user is isOutsidePortal
-  //var localPosition = new THREE.Vector3
-  //portal.object3d.worldToLocal(localPosition)
+  var localPosition = new THREE.Vector3
+  portal.object3d.worldToLocal(localPosition)
   var isOutsidePortal = localPosition.z >= 0 ? true : false
 
   // handle mesh visibility based on isOutsidePortal

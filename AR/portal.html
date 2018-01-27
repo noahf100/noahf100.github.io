@@ -173,9 +173,9 @@ var counter = 0;
  * our scene and rendering.
  */
 function update() {
-  camera.updateMatrixWorld();
-  var vec = camera.position.clone();
-  vec.applyMatrix4(camera.matrixWorld);
+  camera.updateMatrix();
+  var vec = camera.getWorldPosition;
+
 
   for(var i = 0; i < portals.length; i++){
     updatePortal(portals[i], vec, counter);
@@ -482,7 +482,10 @@ function _buildRectangularFrame(radius, width, height){
   meshBottom.position.y = -height/2
   container.add(meshBottom)
 
-  return container;
+  var circle = new THREE.CircleGeometry(radius, 64);
+  circle.vertices.shift();
+  return new Three.Line(geometry, material);
+  //return container;
 } 
 
 //////////////////////////////////////////////////////////////////////////////

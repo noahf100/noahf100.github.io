@@ -244,7 +244,7 @@ function onClick () {
   // Clone our cube object and place it at the camera's
   // current position
   //var clone = cube.clone();
-  var portalDoor = new Portal360(images[Math.floor(Math.random()*images.length)], 0.5, 1);
+  var portalDoor = new Portal360(images[Math.floor(Math.random()*images.length)], 1, 2);
   //scene.add(portalDoor.object3d);
   scene.add(portalDoor.object);
   portalDoor.object.position.copy(pos);
@@ -255,7 +255,7 @@ function onClick () {
 function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   
   this.object = new THREE.Group;
-  this.object.position.y = doorHeight/2;
+  this.object.position.y = doorHeight/4;
   this.width = doorWidth;
   this.height = doorHeight;
   
@@ -512,8 +512,8 @@ function updatePortal(portal, vec, counter) {
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
   //var isOutsidePortal = localPosition.z >= 0 ? true : false;
-  //portal.object.worldToLocal(vec);
-  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, portal.object.x, portal.object.y, portal.object.z, portal.width, portal.height, counter);
+  portal.object.worldToLocal(vec);
+  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, localPosition.z, portal.width, portal.height, counter);
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

@@ -346,6 +346,9 @@ function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight);
   this.frameMesh = frameMesh;
   this.object.add(frameMesh);
+
+  this.outsideMesh.visible = false;
+  this.insideMesh.visible = true;
   //return doorCenter;
 }
 //////////////////////////////////////////////////////////////////////////////

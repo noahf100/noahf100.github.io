@@ -236,16 +236,16 @@ function onClick () {
 
 function Portal360(videoImageURL, doorWidth, doorHeight){
   
-  var doorCenter = new THREE.Group
-  doorCenter.position.y = doorHeight/2
-  this.object3d = doorCenter
+  var doorCenter = new THREE.Group;
+  doorCenter.position.y = doorHeight/2;
+  
 
   //////////////////////////////////////////////////////////////////////////////
   //    build texture360
   //////////////////////////////////////////////////////////////////////////////
-  var isVideo = videoImageURL.match(/.(mp4|webm|ogv)/i) ? true : false
+  var isVideo = videoImageURL.match(/.(mp4|webm|ogv)/i) ? true : false;
   if( isVideo ){
-    var video = document.createElement( 'video' )
+    var video = document.createElement( 'video' );
     video.width = 640;
     video.height = 360;
     video.loop = true;
@@ -260,7 +260,7 @@ function Portal360(videoImageURL, doorWidth, doorHeight){
     texture360.format = THREE.RGBFormat;  
     texture360.flipY = false;   
   }else{
-    var texture360 = new THREE.TextureLoader().load(videoImageURL)
+    var texture360 = new THREE.TextureLoader().load(videoImageURL);
     texture360.minFilter = THREE.NearestFilter;
     texture360.format = THREE.RGBFormat;
     texture360.flipY = false;   
@@ -271,18 +271,19 @@ function Portal360(videoImageURL, doorWidth, doorHeight){
   //////////////////////////////////////////////////////////////////////////////
 
   // create insideMesh which is visible IIF inside the portal
-  var insideMesh = _buildInsideMesh(texture360, doorWidth, doorHeight)
-  doorCenter.add(insideMesh)
-  this.insideMesh = insideMesh
+  var insideMesh = _buildInsideMesh(texture360, doorWidth, doorHeight);
+  doorCenter.add(insideMesh);
+  this.insideMesh = insideMesh;
 
   // create outsideMesh which is visible IIF outside the portal
-  var outsideMesh = _buildOutsideMesh(texture360, doorWidth, doorHeight)
-  doorCenter.add(outsideMesh)
-  this.outsideMesh = outsideMesh
+  var outsideMesh = _buildOutsideMesh(texture360, doorWidth, doorHeight);
+  doorCenter.add(outsideMesh);
+  this.outsideMesh = outsideMesh;
 
   // create frameMesh for the frame of the portal
-  var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight)
-  doorCenter.add(frameMesh)
+  var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight);
+  doorCenter.add(frameMesh);
+  this.object3d = doorCenter;
   //return doorCenter;
 }
 //////////////////////////////////////////////////////////////////////////////

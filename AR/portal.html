@@ -411,7 +411,7 @@ function _buildOutsideMesh(texture360, doorWidth, doorHeight){
   // var radius360Sphere = 1
 
   // build half sphere geometry
-  var geometry = new THREE.SphereGeometry( radius360Sphere, 16, 16, Math.PI, 2*Math.PI, 0, Math.PI).rotateZ(Math.PI)
+  var geometry = new THREE.SphereGeometry( radius360Sphere, 16, 16, Math.PI, Math.PI, 0, Math.PI).rotateZ(Math.PI)
   // fix UVs
   geometry.faceVertexUvs[0].forEach(function(faceUvs){
     faceUvs.forEach(function(uv){
@@ -478,7 +478,7 @@ function updatePortal(portal) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
-  var isOutsidePortal = localPosition.z >= 0 ? true : false;
+  var isOutsidePortal = localPosition.x >= 0 ? true : false;
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

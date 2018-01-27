@@ -256,8 +256,12 @@ function onClick () {
   //var clone = cube.clone();
   var portalDoor = new Portal360(images[Math.floor(Math.random()*images.length)], 1, 2);
   //scene.add(portalDoor.object3d);
-  remove(portal, scene);
-  portal = portalDoor;
+  if(portal == undefined){
+    portal = portalDoor;
+  }
+  else{
+    scene.remove(portal.object);
+  }
 
   scene.add(portalDoor.object);
   portalDoor.object.position.copy(pos);
@@ -319,13 +323,6 @@ function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   this.frameMesh = frameMesh;
   this.object.add(frameMesh);
   //return doorCenter;
-}
-
-function remove(portal, scene){
-  if(portal === null){
-    return;
-  }
-  scene.remove(portal.object);
 }
 //////////////////////////////////////////////////////////////////////////////
 //    Code Separator

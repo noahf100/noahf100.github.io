@@ -235,8 +235,8 @@ function onClick () {
 
 function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   
-  var doorCenter = new THREE.Group;
-  doorCenter.position.y = doorHeight/2;
+  this.object = new THREE.Group;
+  this.object.position.y = doorHeight/2;
   
 
   //////////////////////////////////////////////////////////////////////////////
@@ -271,22 +271,21 @@ function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
 
   // create insideMesh which is visible IIF inside the portal
   var insideMesh = _buildInsideMesh(texture360, doorWidth, doorHeight);
-  doorCenter.add(insideMesh);
+  this.object.add(insideMesh);
   this.insideMesh = insideMesh;
 
   // create outsideMesh which is visible IIF outside the portal
   var outsideMesh = _buildOutsideMesh(texture360, doorWidth, doorHeight);
-  doorCenter.add(outsideMesh);
+  this.object.add(outsideMesh);
   this.outsideMesh = outsideMesh;
 
   // create frameMesh for the frame of the portal
   var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight);
-  doorCenter.add(frameMesh);
-  this.object3d = doorCenter;
+  this.object.add(frameMesh);
 
-  scene.add(doorCenter);
-  doorCenter.position.copy(pos);
-  doorCenter.quaternion.copy(ori);
+  scene.add(this.object);
+  this.object.position.copy(pos);
+  this.object.quaternion.copy(ori);
   //return doorCenter;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -478,17 +477,18 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 function updatePortal(portal) {
   // determine if the user is isOutsidePortal
-  var localPosition = new THREE.Vector3
-  portal.object3d.worldToLocal(localPosition)
-  var isOutsidePortal = localPosition.z >= 0 ? true : false
+  var localPosition = new THREE.Vector3;
+  portal.object.worldToLocal(localPosition);
+  var isOutsidePortal = localPosition.z >= 0 ? true : false;
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){
-    portal.outsideMesh.visible = true
-    portal.insideMesh.visible = false
-  }else{
-    portal.outsideMesh.visible = false
-    portal.insideMesh.visible = true
+    portal.outsideMesh.visible = true;
+    portal.insideMesh.visible = false;
+  }
+  else{
+    portal.outsideMesh.visible = false;
+    portal.insideMesh.visible = true;
   }
 }
 </script>

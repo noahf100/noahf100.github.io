@@ -504,7 +504,7 @@ function isIn(x, y, z, myX, myY, myZ, width, height, counter){
   }
   
   //return (x >= myX - width/2 && x <= myX + width/2) && (y >= myY  - height/2) && (y <= myY + height/2) && (z <= myZ);
-  return z <= myZ;
+  return z <= 0;
 }
 
 function updatePortal(portal, vec, counter) {
@@ -513,7 +513,7 @@ function updatePortal(portal, vec, counter) {
   portal.object.worldToLocal(localPosition);
   //var isOutsidePortal = localPosition.z >= 0 ? true : false;
   portal.object.worldToLocal(vec);
-  var isOutsidePortal = !isIn(vec.x, vec.y, portal.object.z, localPosition.x, localPosition.y, localPosition.z, portal.width, portal.height, counter);
+  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, localPosition.z, portal.width, portal.height, counter);
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

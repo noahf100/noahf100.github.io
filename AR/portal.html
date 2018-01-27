@@ -509,13 +509,13 @@ function _buildRectangularFrame(radius, width, height){
   // mesh right
   var meshRight = new THREE.Mesh(geometryBeamVertical, material)
   meshRight.position.x = width/2
-  meshBottom.name = "right";
+  meshRight.name = "right";
   container.add(meshRight)
 
   // mesh right
   var meshLeft = new THREE.Mesh(geometryBeamVertical, material)
   meshLeft.position.x = -width/2
-  meshBottom.name = "left";
+  meshLeft.name = "left";
   container.add(meshLeft)
 
   var geometryBeamHorizontal = new THREE.CylinderGeometry(radius, radius, width - radius).rotateZ(Math.PI/2)
@@ -523,7 +523,7 @@ function _buildRectangularFrame(radius, width, height){
   // mesh top
   var meshTop = new THREE.Mesh(geometryBeamHorizontal, material)
   meshTop.position.y = height/2
-  meshBottom.name = "top";
+  meshTop.name = "top";
   container.add(meshTop)
 
   // mesh bottom

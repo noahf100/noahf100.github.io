@@ -164,8 +164,7 @@ function init() {
  */
 function update() {
   for(var i = 0; i < portals.length; i++){
-    alert("lll");
-    updatePortal(portals[i]);
+    updatePortal(portals[i].object);
   }
   // Clears color from the frame before rendering the camera (arView) or scene.
   renderer.clearColor();
@@ -475,20 +474,20 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 //    update function
 //////////////////////////////////////////////////////////////////////////////
-function updatePortal(portal) {
+function updatePortal(object) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
-  portal.object.worldToLocal(localPosition);
+  object.worldToLocal(localPosition);
   var isOutsidePortal = localPosition.z >= 0 ? true : false;
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){
-    portal.outsideMesh.visible = true;
-    portal.insideMesh.visible = false;
+    object.outsideMesh.visible = true;
+    object.insideMesh.visible = false;
   }
   else{
-    portal.outsideMesh.visible = false;
-    portal.insideMesh.visible = true;
+    object.outsideMesh.visible = false;
+    object.insideMesh.visible = true;
   }
 }
 </script>

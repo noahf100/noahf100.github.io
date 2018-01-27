@@ -478,7 +478,7 @@ function updatePortal(portal) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
-  var isOutsidePortal = localPosition.x >= 0 ? true : false;
+  var isOutsidePortal = localPosition.y >= 0 ? true : false;
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

@@ -173,13 +173,13 @@ var counter = 0;
  * our scene and rendering.
  */
 function update() {
-  camera.updateMatrix();
-  var vec = camera.getWorldPosition;
-  /*
+  //camera.updateMatrix();
+  //var vec = camera.getWorldPosition;
+  
   camera.updateMatrixWorld();
   var vec = camera.position.clone();
   vec.applyMatrix( camera.matrixWorld );
-  */
+  
 
   for(var i = 0; i < portals.length; i++){
     updatePortal(portals[i], vec, counter);

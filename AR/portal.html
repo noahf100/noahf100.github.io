@@ -264,17 +264,8 @@ function onClick () {
   }
   else{
     for (let i = scene.children.length - 1; i >= 0; i--) {
-      if(scene.children[i].type === "Mesh"){
-        scene.children[i].dispose();
-        scene.remove(scene.children[i]);
-      }
-      else if(scene.children[i].type === "Geometry"){
-        scene.children[i].dispose();
-        scene.remove(scene.children[i]);
-      }
-      else{
-        scene.remove(scene.children[i]);
-      }
+      scene.remove(scene.children[i]);
+      
     }
     /*portal.insideMesh.getObjectByName("mesh").geometry.dispose();
     portal.insideMesh.getObjectByName("mesh").material.dispose();

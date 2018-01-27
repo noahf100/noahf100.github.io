@@ -175,7 +175,11 @@ var counter = 0;
 function update() {
   camera.updateMatrix();
   var vec = camera.getWorldPosition;
-
+  /*
+  camera.updateMatrixWorld();
+  var vec = camera.position.clone();
+  vec.applyMatrix( camera.matrixWorld );
+  */
 
   for(var i = 0; i < portals.length; i++){
     updatePortal(portals[i], vec, counter);
@@ -507,8 +511,8 @@ function updatePortal(portal, vec, counter) {
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
   //var isOutsidePortal = localPosition.z >= 0 ? true : false;
-  portal.object.worldToLocal(vec);
-  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, localPosition.z, localPosition.width, localPosition.height, counter);
+  //portal.object.worldToLocal(vec);
+  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, portal.object.z, localPosition.width, localPosition.height, counter);
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

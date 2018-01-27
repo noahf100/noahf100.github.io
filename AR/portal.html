@@ -168,8 +168,12 @@ var counter = 0;
  * our scene and rendering.
  */
 function update() {
+  camera.updateMatrixWorld();
+  var vec = camera.position.clone();
+  vec.applyMatrix(camera.matrixWorld);
+
   for(var i = 0; i < portals.length; i++){
-    updatePortal(portals[i], counter);
+    updatePortal(portals[i], vec, counter);
   }
   counter++;
   // Clears color from the frame before rendering the camera (arView) or scene.
@@ -243,6 +247,8 @@ function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   
   this.object = new THREE.Group;
   this.object.position.y = doorHeight/2;
+  this.width = doorWidth;
+  this.height = doorHeight;
   
 
   //////////////////////////////////////////////////////////////////////////////
@@ -477,14 +483,19 @@ function _buildRectangularFrame(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 //    update function
 //////////////////////////////////////////////////////////////////////////////
-function updatePortal(portal, counter) {
+function isIn(x, y, z, myX, myY, myZ, width, height){
+  return x >= myX - width/2 && x <= myX + width/2 && y >= myY  - height/2 && y <= myY + height/2 && z <= myZ;
+}
+
+function updatePortal(portal, vec, counter) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3;
   portal.object.worldToLocal(localPosition);
   if (counter%1000 == 0){
     alert(localPosition.z);
   }
-  var isOutsidePortal = localPosition.z >= 0 ? true : false;
+  //var isOutsidePortal = localPosition.z >= 0 ? true : false;
+  var isOutsidePortal = isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, localPosition.z, localPosition.width, localPosition.height);
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

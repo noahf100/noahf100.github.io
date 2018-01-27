@@ -191,8 +191,11 @@ function update() {
   vec.applyMatrix4( camera.matrixWorld );
   
 
-  for(var i = 0; i < portals.length; i++){
+  /*for(var i = 0; i < portals.length; i++){
     updatePortal(portals[i], vec, counter);
+  }*/
+  if(portal !== null){
+    updatePortal(portal, vec, counter);
   }
   counter++;
   // Clears color from the frame before rendering the camera (arView) or scene.

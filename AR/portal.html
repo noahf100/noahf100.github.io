@@ -227,11 +227,14 @@ function onClick () {
   // current position
   //var clone = cube.clone();
   var portalDoor = Portal360('https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg', 5, 10);
-  alert(portalDoor.object3d);
+  alert("1");
   scene.add(portalDoor.object3d);
-  /*portalDoor.object3d.position.copy(pos);
+  alert("2");
+  portalDoor.object3d.position.copy(pos);
+  alert("3");
   portalDoor.object3d.quaternion.copy(ori);
-  portals.push(portalDoor);*/
+  alert("4");
+  portals.push(portalDoor);
   alert("add");
 }
 
@@ -285,7 +288,6 @@ function Portal360(videoImageURL, doorWidth, doorHeight){
   var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight);
   doorCenter.add(frameMesh);
   this.object3d = doorCenter;
-  alert("end");
   //return doorCenter;
 }
 //////////////////////////////////////////////////////////////////////////////

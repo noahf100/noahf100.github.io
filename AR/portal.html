@@ -225,11 +225,13 @@ function onClick () {
   // Clone our cube object and place it at the camera's
   // current position
   //var clone = cube.clone();
-  var portalDoor = new Portal360('https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg', 1, 2, scene, pos, ori);
+  var portalDoor = new Portal360('https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg', 1, 2);
   //scene.add(portalDoor.object3d);
-  alert("4");
+  scene.add(portalDoor.object);
+  portalDoor.object.position.copy(pos);
+  portalDoor.object.quaternion.copy(ori);
   portals.push(portalDoor);
-  alert("add");
+  alert("oof");
 }
 
 function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
@@ -281,10 +283,6 @@ function Portal360(videoImageURL, doorWidth, doorHeight, scene, pos, ori){
   // create frameMesh for the frame of the portal
   var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight);
   this.object.add(frameMesh);
-
-  scene.add(this.object);
-  this.object.position.copy(pos);
-  this.object.quaternion.copy(ori);
   //return doorCenter;
 }
 //////////////////////////////////////////////////////////////////////////////

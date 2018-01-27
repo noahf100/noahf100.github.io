@@ -170,7 +170,7 @@ var counter = 0;
 function update() {
   camera.updateMatrixWorld();
   var vec = camera.position.clone();
-  vec.applyMatrix(camera.matrixWorld);
+  vec.applyMatrix4(camera.matrixWorld);
 
   for(var i = 0; i < portals.length; i++){
     updatePortal(portals[i], vec, counter);

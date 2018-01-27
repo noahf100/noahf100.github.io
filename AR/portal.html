@@ -91,6 +91,9 @@ var colors = [
   new THREE.Color( 0x000000 )
 ];
 var portals = [];
+var images = [
+  'https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg'
+];
 /**
  * Use the `getARDisplay()` utility to leverage the WebVR API
  * to see if there are any AR-capable WebVR VRDisplays. Returns
@@ -225,7 +228,7 @@ function onClick () {
   // Clone our cube object and place it at the camera's
   // current position
   //var clone = cube.clone();
-  var portalDoor = new Portal360('https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg', 1, 2);
+  var portalDoor = new Portal360('./assets/IMG_0186.jpg', 1, 2);
   //scene.add(portalDoor.object3d);
   scene.add(portalDoor.object);
   portalDoor.object.position.copy(pos);

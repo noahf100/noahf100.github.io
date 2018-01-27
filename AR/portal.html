@@ -512,7 +512,7 @@ function updatePortal(portal, vec, counter) {
   portal.object.worldToLocal(localPosition);
   //var isOutsidePortal = localPosition.z >= 0 ? true : false;
   //portal.object.worldToLocal(vec);
-  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, localPosition.x, localPosition.y, portal.object.z, localPosition.width, localPosition.height, counter);
+  var isOutsidePortal = !isIn(vec.x, vec.y, vec.z, portal.object.x, portal.object.y, portal.object.z, localPosition.width, localPosition.height, counter);
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){

@@ -297,7 +297,7 @@ function onClick (e) {
   }
 }*/
 
-Portal360 = function(videoImageURL, doorWidth, doorHeight){
+function Portal360(videoImageURL, doorWidth, doorHeight){
   
   var doorCenter = new THREE.Group
   doorCenter.position.y = doorHeight/2
@@ -334,23 +334,23 @@ Portal360 = function(videoImageURL, doorWidth, doorHeight){
   //////////////////////////////////////////////////////////////////////////////
 
   // create insideMesh which is visible IIF inside the portal
-  var insideMesh = this._buildInsideMesh(texture360, doorWidth, doorHeight)
+  var insideMesh = _buildInsideMesh(texture360, doorWidth, doorHeight)
   doorCenter.add(insideMesh)
   this.insideMesh = insideMesh
 
   // create outsideMesh which is visible IIF outside the portal
-  var outsideMesh = this._buildOutsideMesh(texture360, doorWidth, doorHeight)
+  var outsideMesh = _buildOutsideMesh(texture360, doorWidth, doorHeight)
   doorCenter.add(outsideMesh)
   this.outsideMesh = outsideMesh
 
   // create frameMesh for the frame of the portal
-  var frameMesh = this._buildRectangularFrame(doorWidth/100, doorWidth, doorHeight)
+  var frameMesh = _buildRectangularFrame(doorWidth/100, doorWidth, doorHeight)
   doorCenter.add(frameMesh)
 }
 //////////////////////////////////////////////////////////////////////////////
 //    Code Separator
 //////////////////////////////////////////////////////////////////////////////
-buildTransparentMaterial = function(){
+ function buildTransparentMaterial(){
   // if there is a cached version, return it
   if( buildTransparentMaterial.material ){
     return buildTransparentMaterial.material
@@ -373,7 +373,7 @@ buildTransparentMaterial = function(){
 //////////////////////////////////////////////////////////////////////////////
 //    Build various cache
 //////////////////////////////////////////////////////////////////////////////
-buildSquareCache = function(){
+function buildSquareCache(){
   var container = new THREE.Group
   // add outter cube - invisibility cloak
   var geometry = new THREE.PlaneGeometry(50,50);
@@ -409,7 +409,7 @@ buildSquareCache = function(){
 /**
  * create insideMesh which is visible IIF inside the portal
  */
-_buildInsideMesh = function(texture360, doorWidth, doorHeight){
+function _buildInsideMesh(texture360, doorWidth, doorHeight){
   var doorInsideCenter = new THREE.Group
 
   // var squareCache = THREEx.Portal360.buildSquareCache()
@@ -452,7 +452,7 @@ _buildInsideMesh = function(texture360, doorWidth, doorHeight){
 /**
  * create outsideMesh which is visible IIF outside the portal
  */
-_buildOutsideMesh = function(texture360, doorWidth, doorHeight){
+function _buildOutsideMesh(texture360, doorWidth, doorHeight){
   var doorOutsideCenter = new THREE.Group
 
   //////////////////////////////////////////////////////////////////////////////
@@ -496,7 +496,7 @@ _buildOutsideMesh = function(texture360, doorWidth, doorHeight){
 /**
  * create frameMesh for the frame of the portal
  */
-_buildRectangularFrame = function(radius, width, height){
+function _buildRectangularFrame(radius, width, height){
   var container = new THREE.Group
   var material = new THREE.MeshNormalMaterial()
   var material = new THREE.MeshPhongMaterial({
@@ -534,20 +534,19 @@ _buildRectangularFrame = function(radius, width, height){
 //////////////////////////////////////////////////////////////////////////////
 //    update function
 //////////////////////////////////////////////////////////////////////////////
-
-update = function () {
+function update(portal) {
   // determine if the user is isOutsidePortal
   var localPosition = new THREE.Vector3
-  this.object3d.worldToLocal(localPosition)
+  portal.object3d.worldToLocal(localPosition)
   var isOutsidePortal = localPosition.z >= 0 ? true : false
 
   // handle mesh visibility based on isOutsidePortal
   if( isOutsidePortal ){
-    this.outsideMesh.visible = true
-    this.insideMesh.visible = false
+    portal.outsideMesh.visible = true
+    portal.insideMesh.visible = false
   }else{
-    this.outsideMesh.visible = false
-    this.insideMesh.visible = true
+    portal.outsideMesh.visible = false
+    portal.insideMesh.visible = true
   }
 }
 </script>

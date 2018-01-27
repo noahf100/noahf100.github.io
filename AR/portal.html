@@ -263,6 +263,9 @@ function onClick () {
     portal = portalDoor;
   }
   else{
+    portal.object.remove(portal.insideMesh);
+    portal.object.remove(portal.outsideMesh);
+    portal.object.remove(portal.frameMesh);
     scene.remove(portal.object);
   }
 

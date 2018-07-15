@@ -36,6 +36,15 @@
     font-weight: 100;
 }
 
+@font-face {
+    font-family: 'Big Circular Light';
+    src: url('../fonts/Circular-Light.eot') format('embedded-opentype'),
+         url('../fonts/Circular-Light.woff') format('woff'),
+         url('../fonts/Circular-Light.ttf') format('truetype');
+    font-style: bold;
+    font-weight: 1000;
+}
+
 .circular-bold {
     font-family: "Circular Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -245,6 +254,7 @@ p {
     width: 100%;
     min-width: 375px;
     z-index: 2001;
+    text-align: center;
 }
 
 #main-icon {
@@ -391,11 +401,13 @@ p {
 
 #footer {
     display: table;
+    bottom: 0px;
     width: 100vw;
     min-width: 375px;
     height: 7.5vh;
     color: #ffffff;
     text-align: center;
+    position: fixed;
 }
 
 #footer-text {
@@ -406,7 +418,41 @@ p {
     vertical-align: middle;
 }
 
+#title-slide {
+    text-align: center;
+}
+
+#title-text {
+    z-index: 1000;
+    color: black;
+    font-size: 10vh;
+    vertical-align: middle;
+}
+
 /* Other */
+    #left {
+        position: absolute;
+        left: 0;
+        top:0;
+        /*text-align: left;*/
+        
+    }
+    /*#mid {
+        text-align: center;
+        /*
+        overflow: hidden;
+        display: inline-block;
+        margin:0 auto;
+        width:33.33%;
+        text-align: center;*/
+    /*}*/
+
+    #right {
+        position: absolute;
+        right: 0;
+        /*text-align: right;*/
+    }
+
 
 .fullPage {
     -webkit-background-size: cover;
@@ -512,3 +558,10 @@ p {
         margin-left: 50px;
     }
 }
+#cy {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
